@@ -1,156 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oba AgroTech</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Base Reset */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family:'Montserrat',sans-serif; background:#0F0F0F; color:#fff;}
-    a {color:#FFD700; text-decoration:none;}
-    section {padding:60px 20px; max-width:1000px; margin:auto;}
-    h1,h2,h3 {color:#FFD700;}
-    h2 {margin-bottom:20px;}
-    
-    /* Header */
-    header {display:flex; justify-content:space-between; align-items:center; padding:20px; background:#111; position:fixed; width:100%; top:0; z-index:1000;}
-    .logo {font-weight:bold; font-size:1.5rem; color:#FFD700;}
-    
-    /* Hamburger Menu */
-    .menu-btn {display:none; cursor:pointer; font-size:1.8rem; color:#FFD700;}
-    nav {display:flex; gap:20px;}
-    nav a {font-weight:600;}
-    
-    /* Hero Section */
-    .hero {text-align:center; padding:150px 20px 100px 20px; background:#222 url('placeholder-hero.jpg') no-repeat center/cover;}
-    .hero h1 {font-size:2.5rem; margin-bottom:10px;}
-    .hero p {font-size:1.2rem; margin-bottom:20px;}
-    .cta-buttons a {padding:10px 20px; margin:5px; border:2px solid #FFD700; border-radius:5px; display:inline-block; font-weight:bold; transition:0.3s;}
-    .cta-buttons a:hover {background-color:#FFD700; color:#111;}
-    
-    /* Services & Products */
-    .services,.products {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-    .card {background:#1A1A1A; padding:20px; border-radius:10px; flex:1 1 250px; text-align:center; transition:0.3s;}
-    .card:hover {transform:scale(1.05);}
-    .card img {width:80px; height:80px; margin-bottom:10px;}
-    
-    /* Contact Form */
-    form input, form textarea {width:100%; padding:10px; margin:10px 0; border:none; border-radius:5px;}
-    form button {padding:10px 20px; border:none; background:#FFD700; color:#111; font-weight:bold; border-radius:5px; cursor:pointer; transition:0.3s;}
-    form button:hover {background:#fff; color:#111;}
-    
-    /* Footer */
-    footer {background:#111; padding:20px; text-align:center; font-size:0.9rem;}
-    
-    /* Responsive Hamburger Menu */
-    @media screen and (max-width:768px){
-      nav {display:none; flex-direction:column; background:#111; position:absolute; top:70px; right:20px; padding:20px; border-radius:10px;}
-      nav.show {display:flex;}
-      .menu-btn {display:block;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Oba AgroTech</title>
+
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2909/2909768.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Montserrat;
+background:#0f0f0f;
+color:white;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:#111;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+.logo{
+color:#FFD700;
+font-size:22px;
+font-weight:bold;
+}
+
+.menu-btn{
+font-size:28px;
+color:#FFD700;
+cursor:pointer;
+}
+
+nav{
+display:none;
+flex-direction:column;
+position:absolute;
+right:20px;
+top:70px;
+background:#111;
+padding:20px;
+border-radius:10px;
+}
+
+nav a{
+color:#FFD700;
+text-decoration:none;
+padding:8px 0;
+}
+
+nav.show{
+display:flex;
+}
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+
+url("https://images.unsplash.com/photo-1592982537447-7440770cbfc9");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:42px;
+color:#FFD700;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.cta a{
+border:2px solid #FFD700;
+padding:12px 22px;
+margin:6px;
+border-radius:8px;
+text-decoration:none;
+color:#FFD700;
+font-weight:bold;
+}
+
+.cta a:hover{
+background:#FFD700;
+color:black;
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+color:#FFD700;
+margin-bottom:20px;
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.card{
+background:#1a1a1a;
+padding:25px;
+border-radius:12px;
+flex:1 1 240px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:70px;
+margin-bottom:10px;
+}
+
+/* PRODUCT */
+
+.product img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+/* BLOG */
+
+.blog img{
+width:100%;
+border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">Oba AgroTech</div>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <nav id="nav-menu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#products">Products</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+<div class="logo">Oba AgroTech</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav id="menu">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
 </header>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
-  <h1>Innovating Agriculture for a Sustainable Future</h1>
-  <p>Agro-tech solutions, livestock management, and expert consulting for farmers</p>
-  <div class="cta-buttons">
-    <a href="#services">Explore Services</a>
-    <a href="https://wa.me/YOUR_NUMBER" target="_blank">Consult a Poultry Vet Now</a>
-  </div>
+
+<h1>Modern African Agriculture</h1>
+
+<p>AgroTech • Poultry Expertise • Livestock Innovation</p>
+
+<div class="cta">
+
+<a href="#services">Explore Services</a>
+
+<a href="https://wa.me/YOURNUMBER">Consult Poultry Vet</a>
+
+</div>
+
 </section>
+
+<!-- SERVICES -->
 
 <section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">
-      <img src="placeholder-livestock.png" alt="Livestock Icon">
-      <h3>Livestock Tech & Management</h3>
-      <p>Optimized solutions for livestock care and productivity.</p>
-    </div>
-    <div class="card">
-      <img src="placeholder-crop.png" alt="Crop Icon">
-      <h3>Crop Optimization & Solutions</h3>
-      <p>Data-driven strategies for better yields and sustainability.</p>
-    </div>
-    <div class="card">
-      <img src="placeholder-poultry.png" alt="Poultry Icon">
-      <h3>Poultry Health Consulting</h3>
-      <p>Expert advice to maintain healthy flocks and prevent disease.</p>
-    </div>
-    <div class="card">
-      <img src="placeholder-product.png" alt="Product Icon">
-      <h3>Innovative Agro-Tech Products</h3>
-      <p>Explore our advanced tools and products for modern farming.</p>
-    </div>
-  </div>
+
+<h2>Our Services</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/1998/1998610.png">
+<h3>Livestock Technology</h3>
+<p>Advanced livestock monitoring and productivity solutions.</p>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/628/628324.png">
+<h3>Crop Optimization</h3>
+<p>Smart techniques to increase African farm productivity.</p>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png">
+<h3>Poultry Health</h3>
+<p>Professional poultry veterinary consulting and diagnosis.</p>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+<h3>AgroTech Products</h3>
+<p>Innovative tools designed for modern African farmers.</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="products">
-  <h2>Our Products</h2>
-  <div class="products">
-    <div class="card">
-      <img src="placeholder-product.png" alt="Product Image">
-      <h3>Product Name</h3>
-      <p>Short 2–3 line description highlighting benefits.</p>
-      <a href="#">View Product Details</a>
-    </div>
-    <!-- Add more products here -->
-  </div>
+<!-- PRODUCT -->
+
+<section id="products" class="product">
+
+<h2>Featured Product</h2>
+
+<img src="https://images.unsplash.com/photo-1560493676-04071c5f467b">
+
+<p>
+
+Your agro-tech product will appear here.  
+Explain the benefits, features, and how it helps farmers.
+
+</p>
+
 </section>
+
+<!-- ABOUT -->
 
 <section id="about">
-  <h2>About Us</h2>
-  <p>Mission: To empower farmers with technology, expertise, and sustainable solutions for modern agriculture.</p>
-  <p>Vision: A world where agriculture thrives through innovation and care.</p>
-  <p>Oba AgroTech started with a passion for improving farming systems. Our team combines technical expertise with hands-on experience to deliver measurable results for farmers.</p>
-  <p>Why Choose Us: Accuracy, Expertise, Innovation, Support.</p>
+
+<h2>About Oba AgroTech</h2>
+
+<p>
+
+Oba AgroTech is focused on transforming agriculture in Africa through technology, livestock expertise, and modern farming knowledge.
+
+We combine traditional farming understanding with advanced agro-tech solutions to empower farmers and improve productivity.
+
+</p>
+
 </section>
 
-<section id="blog">
-  <h2>Agro-Tech Insights & Tips</h2>
-  <p>Practical guidance, case studies, and tutorials to help farmers maximize results.</p>
-  <a href="#">Subscribe for Updates</a>
+<!-- BLOG -->
+
+<section id="blog" class="blog">
+
+<h2>AgroTech Insights</h2>
+
+<img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8">
+
+<p style="margin-top:15px">
+
+Educational poultry tips, livestock health guides, and modern farming innovations will be published here.
+
+</p>
+
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <p>We’d love to hear from you. Contact us via form, WhatsApp, or social media.</p>
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+
+<h2>Contact</h2>
+
+<p>Email: info@obaagrotech.com</p>
+
+<p>WhatsApp consultation available</p>
+
 </section>
 
 <footer>
-  <p>© 2026 Oba AgroTech. All rights reserved.</p>
-  <p><a href="#home">Home</a> | <a href="#about">About</a> | <a href="#services">Services</a> | <a href="#products">Products</a> | <a href="#contact">Contact</a> | <a href="#blog">Blog</a></p>
+
+<p>© 2026 Oba AgroTech</p>
+
 </footer>
 
+<a class="whatsapp" href="https://wa.me/YOURNUMBER">💬</a>
+
 <script>
-  function toggleMenu(){
-    document.getElementById('nav-menu').classList.toggle('show');
-  }
+
+function toggleMenu(){
+
+document.getElementById("menu").classList.toggle("show")
+
+}
+
 </script>
 
 </body>
+
 </html>

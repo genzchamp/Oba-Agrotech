@@ -9,13 +9,6 @@
 <meta name="description" content="Oba AgroTech provides African farmers with modern poultry and livestock solutions, disease diagnosis, profit calculators, farm consulting, and educational insights.">
 <meta name="keywords" content="poultry disease checker, broiler profit calculator, African farm technology, Newcastle disease, coccidiosis, farm consulting, African livestock solutions">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Oba AgroTech – Modern African Poultry & Livestock Solutions">
-<meta property="og:description" content="Smart poultry and livestock tools, educational tips, and farm consulting for African farmers.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://genzchamp.github.io/Oba-Agrotech/">
-<meta property="og:image" content="https://images.unsplash.com/photo-1592982537447-7440770cbfc9">
-
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2909/2909768.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -28,7 +21,19 @@ header{display:flex;justify-content:space-between;align-items:center;padding:20p
 nav{display:none;flex-direction:column;position:absolute;right:20px;top:70px;background:#111;padding:20px;border-radius:10px;}
 nav a{color:#FFD700;text-decoration:none;padding:8px 0;}
 nav.show{display:flex;}
-.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+             url('https://images.unsplash.com/photo-1577985040861-22d6f24e5dc5?auto=format&fit=crop&w=1350&q=80');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
 .hero h1{font-size:42px;color:#FFD700;margin-bottom:15px;}
 .hero p{font-size:18px;margin-bottom:25px;}
 .cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
@@ -37,12 +42,22 @@ nav.show{display:flex;}
 section{padding:90px 20px;max-width:1100px;margin:auto;}
 h2{color:#FFD700;margin-bottom:20px;text-align:center;}
 .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.card{background:#1a1a1a;padding:25px;border-radius:12px;flex:1 1 240px;text-align:center;transition:0.3s;}
+.card{
+  background-size:cover;
+  background-position:center;
+  padding:25px;
+  border-radius:12px;
+  flex:1 1 240px;
+  text-align:center;
+  color:white;
+  transition:0.3s;
+}
+.card h3, .card p {background:rgba(0,0,0,0.5);padding:10px;border-radius:8px;}
 .card:hover{transform:scale(1.05);}
-.card img{width:70px;margin-bottom:10px;}
 .education-cards{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:20px;}
 .education-card{background:#222;padding:20px;border-radius:12px;flex:1 1 280px;text-align:center;}
 .education-card h4{color:#FFD700;margin-bottom:10px;}
+.product img,.blog img{width:100%;border-radius:12px;margin-bottom:15px;}
 footer{background:#111;padding:30px;text-align:center;}
 .whatsapp{position:fixed;bottom:25px;right:25px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:#0088cc;border-radius:50%;font-size:28px;text-decoration:none;color:white;box-shadow:0 4px 12px rgba(0,0,0,0.4);z-index:1000;}
 input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-bottom:15px;}
@@ -80,11 +95,35 @@ input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-b
 <section id="dashboard">
 <h2>Oba AgroTech Dashboard</h2>
 <div class="cards">
-<div class="card"><img src="https://images.unsplash.com/photo-1577985040861-22d6f24e5dc5"><h3>Poultry Disease Checker</h3><p>Quick symptom-based disease suggestion for African farms.</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1594947841011-0f3509e75d15"><h3>Poultry Vet Consulting</h3><p>Direct expert consulting via Telegram.</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1591089081400-c0c2c1cdd6a5"><h3>Livestock Technology</h3><p>Smart monitoring and productivity solutions.</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b"><h3>AgroTech Products</h3><p>Innovative tools designed for African farmers.</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1594868583812-b3d7bb47634a"><h3>Farm Consulting</h3><p>Advice to improve farm productivity and sustainability.</p></div>
+
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1594868583812-b3d7bb47634a?auto=format&fit=crop&w=600&q=80');">
+<h3>Poultry Disease Checker</h3>
+<p>Quick symptom-based disease suggestions for African farms.</p>
+<a href="index.html#disease-checker" style="color:#FFD700;font-weight:bold;">Use Tool</a>
+</div>
+
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1594947841011-0f3509e75d15?auto=format&fit=crop&w=600&q=80');">
+<h3>Poultry Vet Consulting</h3>
+<p>Direct expert consulting via Telegram.</p>
+<a href="https://t.me/Oba_AgroTech" target="_blank" style="color:#FFD700;font-weight:bold;">Consult Now</a>
+</div>
+
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1577985040861-22d6f24e5dc5?auto=format&fit=crop&w=600&q=80');">
+<h3>Livestock Technology</h3>
+<p>Monitor livestock health and productivity using smart African farm solutions.</p>
+</div>
+
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80');">
+<h3>AgroTech Products</h3>
+<p>Innovative tools designed for African farmers.</p>
+</div>
+
+<div class="card" style="background-image:url('https://images.unsplash.com/photo-1591089081400-c0c2c1cdd6a5?auto=format&fit=crop&w=600&q=80');">
+<h3>Farm Consulting</h3>
+<p>Expert advice to improve farm productivity and sustainability.</p>
+<a href="https://t.me/Oba_AgroTech" target="_blank" style="color:#FFD700;font-weight:bold;">Consult Now</a>
+</div>
+
 </div>
 </section>
 
@@ -98,7 +137,7 @@ input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-b
 </div>
 <div class="education-card">
 <h4>Gumboro Disease</h4>
-<p>Weakens the immune system of young chickens. Vaccinate and ensure clean water and feed.</p>
+<p>Weakens young chickens' immune system. Vaccinate, provide clean water and feed.</p>
 </div>
 <div class="education-card">
 <h4>Coccidiosis</h4>
@@ -110,14 +149,14 @@ input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-b
 <!-- PRODUCTS -->
 <section id="products">
 <h2>Featured Product</h2>
-<img src="https://images.unsplash.com/photo-1591095512045-bb711a7a2452" style="width:100%;border-radius:12px;margin-bottom:15px;">
+<img src="https://images.unsplash.com/photo-1591095512045-bb711a7a2452?auto=format&fit=crop&w=1200&q=80" alt="AgroTech Product">
 <p>Your agro-tech product showcased in real African farm environment.</p>
 </section>
 
 <!-- BLOG -->
 <section id="blog">
 <h2>AgroTech Insights</h2>
-<img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8" style="width:100%;border-radius:12px;margin-bottom:15px;">
+<img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1200&q=80" alt="African Farming">
 <p>Educational poultry and livestock farming tips including disease prevention, vaccination schedules, and broiler profit management for African farmers.</p>
 </section>
 
@@ -131,7 +170,7 @@ input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-b
 <section id="contact">
 <h2>Contact</h2>
 <p>Email: info@obaagrotech.com</p>
-<p>Telegram consultation available: <a href="https://t.me/Oba_AgroTech" target="_blank">Consult on Telegram</a></p>
+<p>Telegram consultation: <a href="https://t.me/Oba_AgroTech" target="_blank">Consult on Telegram</a></p>
 </section>
 
 <footer>

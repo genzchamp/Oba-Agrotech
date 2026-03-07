@@ -4,11 +4,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farm Tools | Oba AgroTech</title>
-<meta name="description" content="Explore Oba AgroTech farm tools including poultry disease checker, broiler profit calculator, livestock monitoring, and consulting services for African farmers.">
-<meta name="keywords" content="farm tools, poultry disease checker, broiler profit calculator, African farm technology, livestock monitoring, farm consulting Africa">
+<title>Oba AgroTech Farm Tools | Poultry & Livestock Calculators</title>
 
+<!-- Basic SEO -->
+<meta name="description" content="Access Oba AgroTech's smart poultry and livestock tools: disease checker, broiler profit calculator, feed cost estimator, vaccination schedule, and farm ROI calculator for African farmers.">
+<meta name="keywords" content="poultry disease checker, broiler profit calculator, feed cost calculator, vaccination schedule, farm ROI calculator, livestock farming Africa, poultry tools Africa, farm consulting, chicken disease solutions">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="Oba AgroTech Farm Tools – Smart Poultry & Livestock Tools for Africa">
+<meta property="og:description" content="Smart poultry disease checkers, broiler profit calculators, feed cost estimators, vaccination schedules and farm ROI tools for African farmers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://genzchamp.github.io/Oba-Agrotech/farm-tools.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1592982537447-7440770cbfc9">
+
+<!-- Favicon -->
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2909/2909768.png">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -23,14 +35,14 @@ nav.show{display:flex;}
 section{padding:90px 20px;max-width:1100px;margin:auto;}
 h2{color:#FFD700;margin-bottom:20px;text-align:center;}
 .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.card{background:#1a1a1a;padding:25px;border-radius:12px;flex:1 1 240px;text-align:center;transition:0.3s;}
+.card{background:#1a1a1a;padding:25px;border-radius:12px;flex:1 1 300px;text-align:center;transition:0.3s;}
 .card:hover{transform:scale(1.05);}
 .card img{width:70px;margin-bottom:10px;}
 footer{background:#111;padding:30px;text-align:center;}
 .whatsapp{position:fixed;bottom:25px;right:25px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:#0088cc;border-radius:50%;font-size:28px;text-decoration:none;color:white;box-shadow:0 4px 12px rgba(0,0,0,0.4);z-index:1000;}
 input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-bottom:15px;}
-#profit-result,#result{margin-top:15px;color:#FFD700;font-weight:bold;}
-@media(max-width:700px){.card img{width:50px;}}
+#profit-result{margin-top:15px;color:#FFD700;font-weight:bold;}
+#result{margin-top:15px;color:#FFD700;font-weight:bold;}
 </style>
 </head>
 
@@ -40,7 +52,8 @@ input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-b
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 <nav id="menu">
 <a href="index.html#home">Home</a>
-<a href="#tools">Farm Tools</a>
+<a href="index.html#dashboard">Dashboard</a>
+<a href="farm-tools.html">Farm Tools</a>
 <a href="index.html#products">Products</a>
 <a href="index.html#blog">Blog</a>
 <a href="index.html#about">About</a>
@@ -48,51 +61,142 @@ input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-b
 </nav>
 </header>
 
-<section id="tools">
+<!-- PAGE HEADER -->
+<section>
 <h2>Oba AgroTech Farm Tools</h2>
-<div class="cards">
+<p style="text-align:center; max-width:750px; margin:auto; margin-bottom:40px; color:#FFD700;">
+Access all smart tools to manage your poultry and livestock farm efficiently. Identify diseases, calculate profits, estimate feed costs, track vaccinations, and improve ROI.
+</p>
+</section>
 
-<!-- Poultry Disease Checker -->
+<!-- POULTRY DISEASE CHECKER -->
+<section>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1577985040861-22d6f24e5dc5">
 <h3>Poultry Disease Checker</h3>
-<p>Identify common poultry diseases affecting African farms with quick symptom-based suggestions.</p>
-<a href="index.html#disease-checker" style="color:#FFD700; font-weight:bold;">Use Tool</a>
-</div>
-
-<!-- Broiler Profit Calculator -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1591089081400-c0c2c1cdd6a5">
-<h3>Broiler Profit Calculator</h3>
-<p>Estimate expected profits from your broilers or livestock including feed, mortality, and sale price.</p>
-<a href="index.html#calculator" style="color:#FFD700; font-weight:bold;">Use Tool</a>
-</div>
-
-<!-- Livestock Monitoring -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1594868583812-b3d7bb47634a">
-<h3>Livestock Technology</h3>
-<p>Monitor livestock health and productivity using smart African farm solutions.</p>
-</div>
-
-<!-- Farm Consulting -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1594947841011-0f3509e75d15">
-<h3>Farm Consulting</h3>
-<p>Receive expert advice to improve farm efficiency, disease prevention, and productivity in Africa.</p>
-<a href="https://t.me/Oba_AgroTech" target="_blank" style="color:#FFD700; font-weight:bold;">Consult Now</a>
-</div>
-
+<p>Quick symptom-based suggestions for common poultry diseases affecting African farms.</p>
+<label>Bird Age (weeks)</label>
+<input type="number" id="birdAgeFT" placeholder="e.g., 5">
+<label>Symptoms (comma separated)</label>
+<input type="text" id="symptomsFT" placeholder="e.g., sneezing, not eating">
+<label>Droppings Color</label>
+<select id="droppingsFT">
+<option value="">Select</option>
+<option value="green">Green</option>
+<option value="yellow">Yellow</option>
+<option value="white">White</option>
+<option value="brown">Brown</option>
+<option value="bloody">Bloody</option>
+</select>
+<label>Mortality Rate (%)</label>
+<input type="number" id="mortalityFT" placeholder="e.g., 10">
+<label>Vaccination History</label>
+<select id="vaccinationFT">
+<option value="">Select</option>
+<option value="none">None</option>
+<option value="partial">Partial</option>
+<option value="complete">Complete</option>
+</select>
+<button onclick="checkDiseaseFT()" style="background:#FFD700;color:black;padding:12px 25px;border:none;border-radius:8px;cursor:pointer;">Check Disease</button>
+<div id="resultFT"></div>
 </div>
 </section>
 
-<footer>
+<!-- PROFIT CALCULATOR -->
+<section>
+<div class="card" style="margin-top:30px;">
+<h3>Broiler / Livestock Profit Calculator</h3>
+<label>Number of Birds / Livestock</label>
+<input type="number" id="numBirdsFT" placeholder="e.g., 100">
+<label>Cost per Bird / Feed Cost</label>
+<input type="number" id="feedCostFT" placeholder="e.g., 500">
+<label>Mortality Rate (%)</label>
+<input type="number" id="mortalityCalcFT" placeholder="e.g., 5">
+<label>Selling Price per Bird</label>
+<input type="number" id="sellPriceFT" placeholder="e.g., 1200">
+<button onclick="calculateProfitFT()" style="background:#FFD700;color:black;padding:12px 25px;border:none;border-radius:8px;cursor:pointer;">Calculate Profit</button>
+<div id="profit-resultFT"></div>
+</div>
+</section>
+
+<!-- FEED COST CALCULATOR -->
+<section>
+<div class="card" style="margin-top:30px;">
+<h3>Feed Cost Estimator</h3>
+<label>Total Birds / Livestock</label>
+<input type="number" id="feedBirds" placeholder="e.g., 100">
+<label>Feed Cost per Bird</label>
+<input type="number" id="feedPerBird" placeholder="e.g., 500">
+<button onclick="calculateFeed()" style="background:#FFD700;color:black;padding:12px 25px;border:none;border-radius:8px;cursor:pointer;">Calculate Feed Cost</button>
+<div id="feed-result"></div>
+</div>
+</section>
+
+<!-- VACCINATION SCHEDULE (placeholder example) -->
+<section>
+<div class="card" style="margin-top:30px;">
+<h3>Vaccination Schedule</h3>
+<p>Track vaccination schedules for your poultry and livestock (example: Newcastle, Gumboro, Marek’s).</p>
+<!-- You can add more interactive functionality later -->
+</div>
+</section>
+
+<!-- FARM ROI CALCULATOR (placeholder example) -->
+<section>
+<div class="card" style="margin-top:30px;">
+<h3>Farm ROI Calculator</h3>
+<p>Estimate your overall farm returns and profits based on inputs like birds, feed, and selling price.</p>
+<!-- Interactive functionality can be added later -->
+</div>
+</section>
+
+<footer style="margin-top:40px;">
 <p>© 2026 Oba AgroTech</p>
 </footer>
+
 <a class="whatsapp" href="https://t.me/Oba_AgroTech">💬</a>
 
 <script>
+// Hamburger Menu
 function toggleMenu(){document.getElementById("menu").classList.toggle("show")}
+
+// Poultry Disease Checker
+function checkDiseaseFT(){
+  var age=document.getElementById("birdAgeFT").value;
+  var symptoms=document.getElementById("symptomsFT").value.toLowerCase();
+  var droppings=document.getElementById("droppingsFT").value;
+  var mortality=document.getElementById("mortalityFT").value;
+  var vaccination=document.getElementById("vaccinationFT").value;
+  var result="";
+  if(symptoms.includes("sneezing")&&symptoms.includes("not eating")&&droppings=="green"){result="⚠️ Possible Disease: Newcastle or CRD. Isolate sick birds, improve ventilation, provide vitamins.";}
+  else if(symptoms.includes("diarrhea")&&droppings=="yellow"){result="⚠️ Possible Disease: Gumboro. Separate sick birds, ensure clean water, consult vet.";}
+  else if(symptoms.includes("lethargic")){result="⚠️ Possible Issue: Infection or vitamin deficiency. Provide supplements, monitor health.";}
+  else{result="✅ No obvious serious disease detected. Monitor closely.";}
+  result+="<br>📲 <a href='https://t.me/@Oba_AgroTech' target='_blank' style='color:#FFD700; font-weight:bold;'>Consult Oba AgroTech Vet on Telegram</a>";
+  document.getElementById("resultFT").innerHTML=result;
+}
+
+// Profit Calculator
+function calculateProfitFT(){
+  var numBirds=parseFloat(document.getElementById("numBirdsFT").value);
+  var feedCost=parseFloat(document.getElementById("feedCostFT").value);
+  var mortality=parseFloat(document.getElementById("mortalityCalcFT").value)/100;
+  var sellPrice=parseFloat(document.getElementById("sellPriceFT").value);
+  if(isNaN(numBirds)||isNaN(feedCost)||isNaN(mortality)||isNaN(sellPrice)){document.getElementById("profit-resultFT").innerHTML="⚠️ Please fill all fields correctly."; return;}
+  var alive=numBirds*(1-mortality);
+  var totalCost=numBirds*feedCost;
+  var revenue=alive*sellPrice;
+  var profit=revenue-totalCost;
+  document.getElementById("profit-resultFT").innerHTML="💰 Expected Profit: "+profit.toLocaleString()+" NGN";
+}
+
+// Feed Cost Estimator
+function calculateFeed(){
+  var birds=parseFloat(document.getElementById("feedBirds").value);
+  var cost=parseFloat(document.getElementById("feedPerBird").value);
+  if(isNaN(birds)||isNaN(cost)){document.getElementById("feed-result").innerHTML="⚠️ Fill all fields correctly."; return;}
+  var total=birds*cost;
+  document.getElementById("feed-result").innerHTML="💰 Total Feed Cost: "+total.toLocaleString()+" NGN";
+}
 </script>
 
 </body>

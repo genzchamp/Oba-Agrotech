@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Oba AgroTech Digital Farm Tools</title>
+
+<meta name="description" content="Smart digital farm tools by Oba AgroTech including poultry disease checker, broiler profit calculator, feed cost estimator and farm ROI calculator for African farmers.">
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+margin:0;
+padding:0;
+}
+
+header{
+background:#111;
+padding:20px;
+text-align:center;
+}
+
+h1{
+color:#FFD700;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.tool{
+background:#1a1a1a;
+padding:25px;
+border-radius:10px;
+}
+
+.tool h3{
+color:#FFD700;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border:none;
+border-radius:6px;
+}
+
+button{
+background:#FFD700;
+border:none;
+padding:10px;
+font-weight:bold;
+border-radius:6px;
+cursor:pointer;
+}
+
+.result{
+margin-top:10px;
+color:#FFD700;
+font-weight:bold;
+}
+
+.telegram{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#0088cc;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:28px;
+text-decoration:none;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Oba AgroTech Digital Farm Tools</h1>
+<p>Smart tools helping African farmers make better decisions.</p>
+</header>
+
+<div class="container">
+
+<div class="tools-grid">
+
+<!-- Disease Checker -->
+
+<div class="tool">
+
+<h3>Poultry Disease Checker</h3>
+
+<input id="symptoms" placeholder="Enter symptoms e.g sneezing">
+
+<select id="droppings">
+<option value="">Droppings Color</option>
+<option value="green">Green</option>
+<option value="yellow">Yellow</option>
+<option value="bloody">Bloody</option>
+</select>
+
+<button onclick="checkDisease()">Check Disease</button>
+
+<div id="diseaseResult" class="result"></div>
+
+</div>
+
+<!-- Profit Calculator -->
+
+<div class="tool">
+
+<h3>Broiler Profit Calculator</h3>
+
+<input type="number" id="birds" placeholder="Number of birds">
+
+<input type="number" id="cost" placeholder="Cost per bird">
+
+<input type="number" id="price" placeholder="Selling price per bird">
+
+<button onclick="profitCalc()">Calculate</button>
+
+<div id="profitResult" class="result"></div>
+
+</div>
+
+<!-- Feed Calculator -->
+
+<div class="tool">
+
+<h3>Feed Cost Calculator</h3>
+
+<input type="number" id="feedBirds" placeholder="Number of birds">
+
+<input type="number" id="feedWeeks" placeholder="Number of weeks">
+
+<input type="number" id="bagPrice" placeholder="Price per feed bag">
+
+<button onclick="feedCalc()">Calculate Feed Cost</button>
+
+<div id="feedResult" class="result"></div>
+
+</div>
+
+<!-- Vaccination Tool -->
+
+<div class="tool">
+
+<h3>Poultry Vaccination Guide</h3>
+
+<select id="age">
+
+<option value="">Select Bird Age</option>
+<option value="1">1 week</option>
+<option value="2">2 weeks</option>
+<option value="3">3 weeks</option>
+<option value="4">4 weeks</option>
+
+</select>
+
+<button onclick="vaccination()">Check Schedule</button>
+
+<div id="vaccinationResult" class="result"></div>
+
+</div>
+
+<!-- Farm ROI -->
+
+<div class="tool">
+
+<h3>Farm ROI Estimator</h3>
+
+<input type="number" id="investment" placeholder="Total investment">
+
+<input type="number" id="revenue" placeholder="Expected revenue">
+
+<button onclick="roiCalc()">Estimate ROI</button>
+
+<div id="roiResult" class="result"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<a class="telegram" href="https://t.me/YOURUSERNAME">✈</a>
+
+<script>
+
+function checkDisease(){
+
+var symptoms=document.getElementById("symptoms").value.toLowerCase();
+var drop=document.getElementById("droppings").value;
+
+var result="";
+
+if(symptoms.includes("sneeze") && drop=="green"){
+result="Possible Newcastle Disease";
+}
+
+else if(drop=="bloody"){
+result="Possible Coccidiosis";
+}
+
+else{
+result="Monitor birds and consult vet";
+}
+
+document.getElementById("diseaseResult").innerText=result;
+
+}
+
+function profitCalc(){
+
+var birds=document.getElementById("birds").value;
+var cost=document.getElementById("cost").value;
+var price=document.getElementById("price").value;
+
+var totalCost=birds*cost;
+var revenue=birds*price;
+
+var profit=revenue-totalCost;
+
+document.getElementById("profitResult").innerText="Expected Profit: "+profit;
+
+}
+
+function feedCalc(){
+
+var birds=document.getElementById("feedBirds").value;
+var weeks=document.getElementById("feedWeeks").value;
+var price=document.getElementById("bagPrice").value;
+
+var bags=birds*weeks*0.1;
+
+var cost=bags*price;
+
+document.getElementById("feedResult").innerText="Estimated Feed Cost: "+cost;
+
+}
+
+function vaccination(){
+
+var age=document.getElementById("age").value;
+
+var result="";
+
+if(age==1){
+result="Newcastle Vaccine";
+}
+
+else if(age==2){
+result="Gumboro Vaccine";
+}
+
+else if(age==3){
+result="Lasota Booster";
+}
+
+else{
+result="Consult vet for schedule";
+}
+
+document.getElementById("vaccinationResult").innerText=result;
+
+}
+
+function roiCalc(){
+
+var invest=document.getElementById("investment").value;
+var rev=document.getElementById("revenue").value;
+
+var roi=((rev-invest)/invest)*100;
+
+document.getElementById("roiResult").innerText="ROI: "+roi+"%";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -132,6 +132,32 @@ Our poultry health tool helps African farmers identify common chicken diseases l
 </div>
 </section>
 
+<section>
+<h2>Poultry Vaccination Scheduler</h2>
+
+<p style="text-align:center; max-width:700px; margin:auto; margin-bottom:25px;">
+Generate a recommended vaccination schedule for your poultry flock.
+Enter the bird type and the start date (when chicks arrived).
+</p>
+
+<div style="background:#1a1a1a; padding:30px; border-radius:12px; max-width:600px; margin:auto;">
+
+<label>Bird Type</label>
+<select id="birdType">
+<option value="broiler">Broiler</option>
+<option value="layer">Layer</option>
+</select>
+
+<label>Start Date</label>
+<input type="date" id="startDate">
+
+<button onclick="generateSchedule()">Generate Vaccination Schedule</button>
+
+<div id="schedule-result" style="margin-top:20px;"></div>
+
+</div>
+</section>
+
 <footer>
 <p>© 2026 Oba AgroTech</p>
 </footer>

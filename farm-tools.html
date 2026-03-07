@@ -232,6 +232,65 @@ function calculateConsumption(){
   var avg=totalFeed/(num*days);
   document.getElementById("consumption-result").innerHTML="🍽 Average Feed per Bird per Day: "+avg.toFixed(2)+" kg";
 }
+
+function generateSchedule(){
+
+var type = document.getElementById("birdType").value;
+var startDate = new Date(document.getElementById("startDate").value);
+
+if(!startDate){
+document.getElementById("schedule-result").innerHTML="⚠️ Please select a start date.";
+return;
+}
+
+var schedule=[];
+
+if(type=="broiler"){
+
+schedule=[
+{day:1,vaccine:"Marek's"},
+{day:5,vaccine:"Newcastle (HB1)"},
+{day:10,vaccine:"Gumboro"},
+{day:18,vaccine:"Gumboro Booster"},
+{day:21,vaccine:"Newcastle (Lasota)"}
+];
+
+}
+
+if(type=="layer"){
+
+schedule=[
+{day:1,vaccine:"Marek's"},
+{day:7,vaccine:"Newcastle (HB1)"},
+{day:14,vaccine:"Gumboro"},
+{day:21,vaccine:"Gumboro Booster"},
+{day:28,vaccine:"Newcastle (Lasota)"},
+{day:42,vaccine:"Fowl Pox"}
+];
+
+}
+
+var html="<h3 style='color:#FFD700'>Vaccination Schedule</h3>";
+html+="<table style='width:100%; margin-top:10px;'>";
+
+schedule.forEach(function(item){
+
+var date=new Date(startDate);
+date.setDate(date.getDate()+item.day-1);
+
+html+="<tr>";
+html+="<td>Day "+item.day+"</td>";
+html+="<td>"+item.vaccine+"</td>";
+html+="<td>"+date.toDateString()+"</td>";
+html+="</tr>";
+
+});
+
+html+="</table>";
+
+document.getElementById("schedule-result").innerHTML=html;
+
+}
 </script>
 
 </body>

@@ -85,6 +85,32 @@ Our poultry health tool helps African farmers identify common chicken diseases l
 </div>
 </section>
 
+<section>
+
+<h2>Broiler Feed Cost Calculator</h2>
+
+<div style="background:#1a1a1a;padding:30px;border-radius:12px;max-width:600px;margin:auto;">
+
+<label>Number of Birds</label>
+<input type="number" id="birds">
+
+<label>Price per Feed Bag</label>
+<input type="number" id="bagPrice">
+
+<label>Feed Bag Weight (kg)</label>
+<input type="number" id="bagWeight" placeholder="25 or 50">
+
+<label>Total Feed Bags Used</label>
+<input type="number" id="bagsUsed">
+
+<button onclick="feedCostCalc()">Calculate Feed Cost</button>
+
+<div id="feedCostResult"></div>
+
+</div>
+
+</section>
+
 <!-- PROFIT CALCULATOR -->
 <section>
 <h2>Broiler / Livestock Profit Calculator</h2>
@@ -188,6 +214,29 @@ function checkDisease(){
   }
   result+="<br>📲 <a href='https://t.me/@Oba_AgroTech' target='_blank' style='color:#FFD700; font-weight:bold;'>Consult Oba AgroTech Vet on Telegram</a>";
   document.getElementById("result").innerHTML=result;
+}
+
+function feedCostCalc(){
+
+var birds=parseFloat(document.getElementById("birds").value);
+var bagPrice=parseFloat(document.getElementById("bagPrice").value);
+var bagWeight=parseFloat(document.getElementById("bagWeight").value);
+var bagsUsed=parseFloat(document.getElementById("bagsUsed").value);
+
+if(isNaN(birds)||isNaN(bagPrice)||isNaN(bagWeight)||isNaN(bagsUsed)){
+document.getElementById("feedCostResult").innerHTML="⚠️ Please fill all fields.";
+return;
+}
+
+var totalFeed=bagWeight*bagsUsed;
+var totalCost=bagPrice*bagsUsed;
+var costPerBird=totalCost/birds;
+
+document.getElementById("feedCostResult").innerHTML=
+"Total Feed Used: "+totalFeed+" kg <br>"+
+"Total Feed Cost: ₦"+totalCost.toLocaleString()+" <br>"+
+"Feed Cost Per Bird: ₦"+costPerBird.toFixed(2);
+
 }
 
 // Profit Calculator

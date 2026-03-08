@@ -223,155 +223,98 @@ Download Free Guide
 <a class="whatsapp" href="https://t.me/Oba_AgroTech">💬</a>
 
 <script>
-function toggleMenu(){document.getElementById("menu").classList.toggle("show");}
+// Hamburger Menu
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show")
+}
 
 // Poultry Disease Checker
 function checkDisease(){
-  var age=document.getElementById("birdAge").value;
-  var symptoms=document.getElementById("symptoms").value.toLowerCase();
-  var droppings=document.getElementById("droppings").value;
-  var mortality=document.getElementById("mortality").value;
-  var vaccination=document.getElementById("vaccination").value;
-  var result="";
-  if(symptoms.includes("sneezing") && symptoms.includes("not eating") && droppings=="green"){
-    result="⚠️ Possible Disease: Newcastle or CRD. Isolate sick birds, improve ventilation, provide vitamins.";
-  }
-  else if(symptoms.includes("diarrhea") && droppings=="yellow"){
-    result="⚠️ Possible Disease: Gumboro. Separate sick birds, ensure clean water, consult vet.";
-  }
-  else if(symptoms.includes("lethargic")){
-    result="⚠️ Possible Issue: Infection or vitamin deficiency. Provide supplements, monitor health.";
-  }
-  else{
-    result="✅ No obvious serious disease detected. Monitor closely.";
-  }
-  result+="<br>📲 <a href='https://t.me/@Oba_AgroTech' target='_blank' style='color:#FFD700; font-weight:bold;'>Consult Oba AgroTech Vet on Telegram</a>";
-  document.getElementById("result").innerHTML=result;
-}
+    var age = document.getElementById("birdAge").value;
+    var symptoms = document.getElementById("symptoms").value.toLowerCase();
+    var droppings = document.getElementById("droppings").value;
+    var mortality = document.getElementById("mortality").value;
+    var vaccination = document.getElementById("vaccination").value;
+    var result = "";
 
-function feedCostCalc(){
+    if(symptoms.includes("sneezing") && symptoms.includes("not eating") && droppings=="green"){
+        result = "⚠️ Possible Disease: Newcastle or CRD.<br>Advice: Isolate sick birds, improve ventilation, provide vitamins, monitor flock closely.";
+    } else if(symptoms.includes("diarrhea") && droppings=="yellow"){
+        result = "⚠️ Possible Disease: Gumboro.<br>Advice: Separate sick birds, ensure clean water, consult vet.";
+    } else if(symptoms.includes("lethargic")){
+        result = "⚠️ Possible Issue: Infection or vitamin deficiency.<br>Advice: Provide supplements, monitor health.";
+    } else {
+        result = "✅ No obvious serious disease detected. Monitor closely.";
+    }
 
-var birds=parseFloat(document.getElementById("birds").value);
-var bagPrice=parseFloat(document.getElementById("bagPrice").value);
-var bagWeight=parseFloat(document.getElementById("bagWeight").value);
-var bagsUsed=parseFloat(document.getElementById("bagsUsed").value);
+    result += "<br>💡 Tip: Vaccinate your birds on schedule and maintain hygiene in the coop.";
+    result += "<br>📲 <a href='https://t.me/Oba_AgroTech' target='_blank' style='color:#FFD700; font-weight:bold;'>Consult Oba AgroTech Vet on Telegram</a>";
 
-if(isNaN(birds)||isNaN(bagPrice)||isNaN(bagWeight)||isNaN(bagsUsed)){
-document.getElementById("feedCostResult").innerHTML="⚠️ Please fill all fields.";
-return;
-}
-
-var totalFeed=bagWeight*bagsUsed;
-var totalCost=bagPrice*bagsUsed;
-var costPerBird=totalCost/birds;
-
-document.getElementById("feedCostResult").innerHTML=
-"Total Feed Used: "+totalFeed+" kg <br>"+
-"Total Feed Cost: ₦"+totalCost.toLocaleString()+" <br>"+
-"Feed Cost Per Bird: ₦"+costPerBird.toFixed(2);
-
+    document.getElementById("result").innerHTML = result;
 }
 
 // Profit Calculator
 function calculateProfit(){
-  var numBirds=parseFloat(document.getElementById("numBirds").value);
-  var feedCost=parseFloat(document.getElementById("feedCost").value);
-  var mortality=parseFloat(document.getElementById("mortalityCalc").value)/100;
-  var sellPrice=parseFloat(document.getElementById("sellPrice").value);
-  if(isNaN(numBirds)||isNaN(feedCost)||isNaN(mortality)||isNaN(sellPrice)){
-    document.getElementById("profit-result").innerHTML="⚠️ Please fill all fields correctly.";
-    return;
-  }
-  var alive=numBirds*(1-mortality);
-  var totalCost=numBirds*feedCost;
-  var revenue=alive*sellPrice;
-  var profit=revenue-totalCost;
-  document.getElementById("profit-result").innerHTML="💰 Expected Profit: "+profit.toLocaleString()+" NGN";
-}
+    var numBirds = parseFloat(document.getElementById("numBirds").value);
+    var feedCost = parseFloat(document.getElementById("feedCost").value);
+    var mortality = parseFloat(document.getElementById("mortalityCalc").value)/100;
+    var sellPrice = parseFloat(document.getElementById("sellPrice").value);
 
-// Feed Calculator
-function calculateFeed(){
-  var num=parseFloat(document.getElementById("feedNum").value);
-  var perBird=parseFloat(document.getElementById("feedPerBird").value)/1000; // grams to kg
-  var days=parseFloat(document.getElementById("feedDays").value);
-  if(isNaN(num)||isNaN(perBird)||isNaN(days)){
-    document.getElementById("feed-result").innerHTML="⚠️ Please fill all fields correctly.";
-    return;
-  }
-  var totalFeed=num*perBird*days;
-  document.getElementById("feed-result").innerHTML="🍽 Total Feed Required: "+totalFeed.toFixed(2)+" kg";
+    if(isNaN(numBirds) || isNaN(feedCost) || isNaN(mortality) || isNaN(sellPrice)){
+        document.getElementById("profit-result").innerHTML = "⚠️ Please fill all fields correctly.";
+        return;
+    }
+
+    var alive = numBirds * (1 - mortality);
+    var totalCost = numBirds * feedCost;
+    var revenue = alive * sellPrice;
+    var profit = revenue - totalCost;
+
+    document.getElementById("profit-result").innerHTML = "💰 Expected Profit: " + profit.toLocaleString() + " NGN";
 }
 
 // Feed Consumption Calculator
-function calculateConsumption(){
-  var num=parseFloat(document.getElementById("consNum").value);
-  var totalFeed=parseFloat(document.getElementById("consFeed").value);
-  var days=parseFloat(document.getElementById("consDays").value);
-  if(isNaN(num)||isNaN(totalFeed)||isNaN(days)){
-    document.getElementById("consumption-result").innerHTML="⚠️ Please fill all fields correctly.";
-    return;
-  }
-  var avg=totalFeed/(num*days);
-  document.getElementById("consumption-result").innerHTML="🍽 Average Feed per Bird per Day: "+avg.toFixed(2)+" kg";
+function calculateFeed(){
+    var numBirds = parseFloat(document.getElementById("numBirdsFeed").value);
+    var feedPerBird = parseFloat(document.getElementById("feedPerBird").value);
+
+    if(isNaN(numBirds) || isNaN(feedPerBird)){
+        document.getElementById("feed-result").innerHTML = "⚠️ Please fill all fields correctly.";
+        return;
+    }
+
+    var totalFeed = numBirds * feedPerBird;
+    document.getElementById("feed-result").innerHTML = "🍽️ Total Feed Needed: " + totalFeed.toLocaleString() + " kg";
 }
 
-function generateSchedule(){
+// Feed Cost Calculator
+function calculateFeedCost(){
+    var totalFeed = parseFloat(document.getElementById("totalFeed").value);
+    var pricePerKg = parseFloat(document.getElementById("pricePerKg").value);
 
-var type = document.getElementById("birdType").value;
-var startDate = new Date(document.getElementById("startDate").value);
+    if(isNaN(totalFeed) || isNaN(pricePerKg)){
+        document.getElementById("feed-cost-result").innerHTML = "⚠️ Please fill all fields correctly.";
+        return;
+    }
 
-if(!startDate){
-document.getElementById("schedule-result").innerHTML="⚠️ Please select a start date.";
-return;
+    var cost = totalFeed * pricePerKg;
+    document.getElementById("feed-cost-result").innerHTML = "💰 Total Feed Cost: " + cost.toLocaleString() + " NGN";
 }
 
-var schedule=[];
+// Vaccination Scheduler
+function showVaccineSchedule(){
+    var age = parseInt(document.getElementById("birdAgeVaccine").value);
+    if(isNaN(age)){
+        document.getElementById("vaccine-result").innerHTML = "⚠️ Enter a valid age in weeks.";
+        return;
+    }
 
-if(type=="broiler"){
+    var schedule = [];
+    if(age <= 2) schedule.push("💉 Marek's Disease Vaccine");
+    if(age >= 3 && age <= 6) schedule.push("💉 Newcastle Vaccine");
+    if(age >= 4) schedule.push("💉 Gumboro Vaccine");
 
-schedule=[
-{day:1,vaccine:"Marek's"},
-{day:5,vaccine:"Newcastle (HB1)"},
-{day:10,vaccine:"Gumboro"},
-{day:18,vaccine:"Gumboro Booster"},
-{day:21,vaccine:"Newcastle (Lasota)"}
-];
-
-}
-
-if(type=="layer"){
-
-schedule=[
-{day:1,vaccine:"Marek's"},
-{day:7,vaccine:"Newcastle (HB1)"},
-{day:14,vaccine:"Gumboro"},
-{day:21,vaccine:"Gumboro Booster"},
-{day:28,vaccine:"Newcastle (Lasota)"},
-{day:42,vaccine:"Fowl Pox"}
-];
-
-}
-
-var html="<h3 style='color:#FFD700'>Vaccination Schedule</h3>";
-html+="<table style='width:100%; margin-top:10px;'>";
-
-schedule.forEach(function(item){
-
-var date=new Date(startDate);
-date.setDate(date.getDate()+item.day-1);
-
-html+="<tr>";
-html+="<td>Day "+item.day+"</td>";
-html+="<td>"+item.vaccine+"</td>";
-html+="<td>"+date.toDateString()+"</td>";
-html+="</tr>";
-
-});
-
-html+="</table>";
-
-document.getElementById("schedule-result").innerHTML=html;
-
+    document.getElementById("vaccine-result").innerHTML = "🗓️ Recommended Vaccines: " + (schedule.length > 0 ? schedule.join(", ") : "None for this age");
 }
 </script>
 

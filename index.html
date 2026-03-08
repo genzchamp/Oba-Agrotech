@@ -24,99 +24,86 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
+/* --- RESET & BASIC --- */
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:Montserrat;background:#0f0f0f;color:white;}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px;background:#111;position:fixed;width:100%;top:0;z-index:1000;}
+body{font-family:Montserrat;background:#0f0f0f;color:#EEE;}
+
+/* --- HEADER --- */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px;background:#111;position:fixed;width:100%;top:0;z-index:1000;
+}
 .logo{color:#FFD700;font-size:22px;font-weight:bold;}
 .menu-btn{font-size:28px;color:#FFD700;cursor:pointer;}
 nav{display:none;flex-direction:column;position:absolute;right:20px;top:70px;background:#111;padding:20px;border-radius:10px;}
-nav a{color:#FFD700;text-decoration:none;padding:8px 0;}
-nav.show{display:flex;}
-.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
-.hero h1{font-size:42px;color:#FFD700;margin-bottom:15px;}
-.hero p{font-size:18px;margin-bottom:25px;}
-.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
-.cta a{border:2px solid #FFD700;padding:12px 22px;border-radius:8px;text-decoration:none;color:#FFD700;font-weight:bold;}
-.cta a:hover{background:#FFD700;color:black;}
+nav a{color:#EEE;text-decoration:none;padding:8px 0;transition: all 0.3s ease;}
+nav a:hover{color:#FFD700;transform:scale(1.05);}
+
+/* --- HERO --- */
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9');
+  background-size:cover;background-position:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
+}
+.hero h1{font-size:42px;color:#FFD700;margin-bottom:15px;opacity:0;animation:fadeInUp 1s forwards;}
+.hero p{font-size:18px;margin-bottom:25px;opacity:0;animation:fadeInUp 1.3s forwards;}
+.hero .cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;opacity:0;animation:fadeInUp 1.6s forwards;}
+.cta a{
+  border:2px solid #FFD700;padding:12px 22px;border-radius:8px;
+  text-decoration:none;color:#FFD700;font-weight:bold;
+  transition: all 0.3s ease;
+}
+.cta a:hover{background:#FFD700;color:#111;transform:scale(1.05);box-shadow:0 0 15px #FFD700;}
+
+/* --- VALUE BANNER --- */
+.hero .value-banner{
+  margin-top:15px;text-align:center;font-size:16px;color:#FFD700;font-weight:bold;opacity:0;animation:fadeInUp 1.9s forwards;
+}
+
+/* --- SECTIONS --- */
 section{padding:90px 20px;max-width:1100px;margin:auto;}
 h2{color:#FFD700;margin-bottom:20px;text-align:center;}
+section p{color:#EEE;margin-bottom:15px;}
 .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.card{background:#1a1a1a;padding:25px;border-radius:12px;flex:1 1 240px;text-align:center;transition:0.3s;}
-.card:hover{transform:scale(1.05);}
+.card{
+  background:#1a1a1a;padding:25px;border-radius:12px;
+  flex:1 1 240px;text-align:center;transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 10px 25px rgba(255,215,0,0.3);
+}
 .card img{width:70px;margin-bottom:10px;}
 .product img,.blog img{width:100%;border-radius:10px;margin-bottom:15px;}
-footer{background:#111;padding:30px;text-align:center;}
-.whatsapp{position:fixed;bottom:25px;right:25px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:#0088cc;border-radius:50%;font-size:28px;text-decoration:none;color:white;box-shadow:0 4px 12px rgba(0,0,0,0.4);z-index:1000;}
+
+/* --- FOOTER --- */
+footer{background:#111;padding:30px;text-align:center;color:#CCC;}
+
+/* --- FIXED CHAT ICON --- */
+.whatsapp{
+  position:fixed;bottom:25px;right:25px;width:60px;height:60px;
+  display:flex;align-items:center;justify-content:center;background:#0088cc;
+  border-radius:50%;font-size:28px;text-decoration:none;color:white;
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);z-index:1000;
+  transition: transform 0.3s ease;
+}
+.whatsapp:hover{transform:scale(1.1);box-shadow:0 0 15px #0088cc;}
+
+/* --- INPUTS --- */
+input, select{width:100%;padding:10px;border-radius:8px;border:none;margin-bottom:15px;color:#111;}
+button{cursor:pointer;}
+
+/* --- CALCULATOR & DISEASE CHECKER --- */
+#profit-result, #result{margin-top:15px;color:#FFD700;font-weight:bold;}
+
+/* --- MEDIA QUERIES --- */
 @media(max-width:700px){.hero h1{font-size:32px;}}
-input, select{width:100%; padding:10px; border-radius:8px; border:none; margin-bottom:15px;}
-#profit-calculator input{margin-bottom:15px;}
-#profit-result{margin-top:15px;color:#FFD700;font-weight:bold;}
 
-
-/* ==== Spacing Fixes for Homepage ==== */
-
-/* Space after hero and before dashboard */
-.hero {
-    margin-bottom: 60px; /* pushes dashboard down */
-}
-
-/* Dashboard top padding so fixed header doesn't overlap */
-#dashboard {
-    padding-top: 60px;
-    padding-bottom: 60px; /* space below cards */
-}
-
-/* Increase space between cards */
-.cards {
-    gap: 30px;
-}
-
-/* Hero buttons spacing in mobile view */
-.cta a {
-    margin-bottom: 15px;
-}
-
-/* General spacing for all sections */
-section {
-    padding-top: 90px;
-    padding-bottom: 90px;
-}
-
-
-/* ===== Global Section Spacing ===== */
-
-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-/* ===== Dashboard Card Spacing ===== */
-#dashboard .cards {
-    gap: 35px; /* space between cards */
-}
-
-#dashboard .card {
-    padding: 30px;  /* more padding inside each card */
-}
-
-/* Add vertical spacing between the dashboard title and content */
-#dashboard h2 {
-    margin-bottom: 25px;
-}
-
-/* Add small spacing after dashboard */
-#dashboard {
-    margin-bottom: 40px;
-}
-
-/* Larger spacing above the profit calculator section */
-#calculator {
-    margin-top: 60px;
-}
-
-/* Spacing above the Poultry Disease Checker */
-#disease-checker {
-    margin-top: 60px;
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp{
+  to{opacity:1;transform:translateY(0);}
+  from{opacity:0;transform:translateY(20px);}
 }
 
 </style>

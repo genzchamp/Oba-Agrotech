@@ -489,36 +489,99 @@ Learn practical poultry farming strategies including disease prevention, broiler
 
 <script>
 // Hamburger Menu
-function toggleMenu(){document.getElementById("menu").classList.toggle("show")}
-
-// Poultry Disease Checker
-function checkDisease(){
-  var age=document.getElementById("birdAge").value;
-  var symptoms=document.getElementById("symptoms").value.toLowerCase();
-  var droppings=document.getElementById("droppings").value;
-  var mortality=document.getElementById("mortality").value;
-  var vaccination=document.getElementById("vaccination").value;
-  var result="";
-  if(symptoms.includes("sneezing")&&symptoms.includes("not eating")&&droppings=="green"){result="⚠️ Possible Disease: Newcastle or CRD. Isolate sick birds, improve ventilation, provide vitamins.";}
-  else if(symptoms.includes("diarrhea")&&droppings=="yellow"){result="⚠️ Possible Disease: Gumboro. Separate sick birds, ensure clean water, consult vet.";}
-  else if(symptoms.includes("lethargic")){result="⚠️ Possible Issue: Infection or vitamin deficiency. Provide supplements, monitor health.";}
-  else{result="✅ No obvious serious disease detected. Monitor closely.";}
-  result+="<br>📲 <a href='https://t.me/@Oba_AgroTech' target='_blank' style='color:#FFD700; font-weight:bold;'>Consult Oba AgroTech Vet on Telegram</a>";
-  document.getElementById("result").innerHTML=result;
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show")
 }
 
-// Profit Calculator
+// Poultry Disease Checker (Upgraded)
+function checkDisease(){
+    var age = document.getElementById("birdAge").value;
+    var symptoms = document.getElementById("symptoms").value.toLowerCase();
+    var droppings = document.getElementById("droppings").value;
+    var mortality = document.getElementById("mortality").value;
+    var vaccination = document.getElementById("vaccination").value;
+    var result = "";
+
+    // Enhanced offline AI-like logic
+    if(symptoms.includes("sneezing") && symptoms.includes("not eating") && droppings=="green"){
+        result = "⚠️ Possible Disease: Newcastle or CRD.<br>Advice: Isolate sick birds, improve ventilation, provide vitamins, monitor flock closely.";
+    } else if(symptoms.includes("diarrhea") && droppings=="yellow"){
+        result = "⚠️ Possible Disease: Gumboro.<br>Advice: Separate sick birds, ensure clean water, consult vet.";
+    } else if(symptoms.includes("lethargic")){
+        result = "⚠️ Possible Issue: Infection or vitamin deficiency.<br>Advice: Provide supplements, monitor health.";
+    } else {
+        result = "✅ No obvious serious disease detected. Monitor closely.";
+    }
+
+    // Extra tips for farmers
+    result += "<br>💡 Tip: Vaccinate your birds on schedule and maintain hygiene in the coop.";
+    result += "<br>📲 <a href='https://t.me/Oba_AgroTech' target='_blank' style='color:#FFD700; font-weight:bold;'>Consult Oba AgroTech Vet on Telegram</a>";
+
+    document.getElementById("result").innerHTML = result;
+}
+
+// Broiler / Livestock Profit Calculator
 function calculateProfit(){
-  var numBirds=parseFloat(document.getElementById("numBirds").value);
-  var feedCost=parseFloat(document.getElementById("feedCost").value);
-  var mortality=parseFloat(document.getElementById("mortalityCalc").value)/100;
-  var sellPrice=parseFloat(document.getElementById("sellPrice").value);
-  if(isNaN(numBirds)||isNaN(feedCost)||isNaN(mortality)||isNaN(sellPrice)){document.getElementById("profit-result").innerHTML="⚠️ Please fill all fields correctly."; return;}
-  var alive=numBirds*(1-mortality);
-  var totalCost=numBirds*feedCost;
-  var revenue=alive*sellPrice;
-  var profit=revenue-totalCost;
-  document.getElementById("profit-result").innerHTML="💰 Expected Profit: "+profit.toLocaleString()+" NGN";
+    var numBirds = parseFloat(document.getElementById("numBirds").value);
+    var feedCost = parseFloat(document.getElementById("feedCost").value);
+    var mortality = parseFloat(document.getElementById("mortalityCalc").value)/100;
+    var sellPrice = parseFloat(document.getElementById("sellPrice").value);
+
+    if(isNaN(numBirds) || isNaN(feedCost) || isNaN(mortality) || isNaN(sellPrice)){
+        document.getElementById("profit-result").innerHTML = "⚠️ Please fill all fields correctly.";
+        return;
+    }
+
+    var alive = numBirds * (1 - mortality);
+    var totalCost = numBirds * feedCost;
+    var revenue = alive * sellPrice;
+    var profit = revenue - totalCost;
+
+    document.getElementById("profit-result").innerHTML = "💰 Expected Profit: " + profit.toLocaleString() + " NGN";
+}
+
+// Feed Consumption Calculator
+function calculateFeed(){
+    var numBirds = parseFloat(document.getElementById("numBirdsFeed").value);
+    var feedPerBird = parseFloat(document.getElementById("feedPerBird").value);
+
+    if(isNaN(numBirds) || isNaN(feedPerBird)){
+        document.getElementById("feed-result").innerHTML = "⚠️ Please fill all fields correctly.";
+        return;
+    }
+
+    var totalFeed = numBirds * feedPerBird;
+    document.getElementById("feed-result").innerHTML = "🍽️ Total Feed Needed: " + totalFeed.toLocaleString() + " kg";
+}
+
+// Feed Cost Calculator
+function calculateFeedCost(){
+    var totalFeed = parseFloat(document.getElementById("totalFeed").value);
+    var pricePerKg = parseFloat(document.getElementById("pricePerKg").value);
+
+    if(isNaN(totalFeed) || isNaN(pricePerKg)){
+        document.getElementById("feed-cost-result").innerHTML = "⚠️ Please fill all fields correctly.";
+        return;
+    }
+
+    var cost = totalFeed * pricePerKg;
+    document.getElementById("feed-cost-result").innerHTML = "💰 Total Feed Cost: " + cost.toLocaleString() + " NGN";
+}
+
+// Vaccination Scheduler (Simple Example)
+function showVaccineSchedule(){
+    var age = parseInt(document.getElementById("birdAgeVaccine").value);
+    if(isNaN(age)){
+        document.getElementById("vaccine-result").innerHTML = "⚠️ Enter a valid age in weeks.";
+        return;
+    }
+
+    var schedule = [];
+    if(age <= 2) schedule.push("💉 Marek's Disease Vaccine");
+    if(age >= 3 && age <= 6) schedule.push("💉 Newcastle Vaccine");
+    if(age >= 4) schedule.push("💉 Gumboro Vaccine");
+
+    document.getElementById("vaccine-result").innerHTML = "🗓️ Recommended Vaccines: " + (schedule.length > 0 ? schedule.join(", ") : "None for this age");
 }
 </script>
 

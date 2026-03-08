@@ -156,16 +156,18 @@ html{
 .stats{
   display:flex;
   justify-content:center;
-  gap:40px;
+  gap:20px;
   padding:50px 20px;
   text-align:center;
+  flex-wrap:wrap; /* allows items to move to next line */
 }
 
 .stat-box{
   background:#1a1a1a;
   padding:25px;
   border-radius:10px;
-  min-width:150px;
+  min-width:120px;
+  flex:1 1 150px; /* responsive width */
 }
 
 .stat-box h3{
